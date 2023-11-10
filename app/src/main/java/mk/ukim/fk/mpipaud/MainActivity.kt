@@ -1,5 +1,6 @@
 package mk.ukim.fk.mpipaud
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import android.provider.CalendarContract
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import mk.ukim.fk.mpipaud.viewModels.RockPaperScissorsViewModel
@@ -26,7 +29,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel:RockPaperScissorsViewModel
 
+    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
+        if(result.resultCode == Activity.RESULT_OK){
+            val data: Intent? = result.data
 
+            textViewResult.text = data?.getStringExtra("userChoice")
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -85,6 +94,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
+        btnGoToIntentActivity.setOnClickListener { _ ->
+            Intent().apply {
+                action = "ukim.finki.RockPaperScissors"
+                type = "text/plain"
+            }.let { i->
+                i.putExtra("userChoice", editTextChoice.text.toString())
+                //startActivity(Intent.createChooser(i, "Choose the app for your intent"))
+
+                resultLauncher.launch(i)
+            }
+        }
 
 
 
