@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ExplicitActivity">
 
+    <TextView
+        android:id="@+id/textUserChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:text="User's Choice"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

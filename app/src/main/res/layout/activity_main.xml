@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:paddingTop="20dp"
-        android:text="Rock Paper or Scissors? Enter your choice:" />
+        android:text="Rock Paper or Scissors? Enter your choice:"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextChoice"
@@ -49,22 +49,19 @@
         android:id="@+id/btnGoToExplicitActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button go to Explicit Activity"
-        />
+        android:text="Button go to Explicit Activity" />
 
     <Button
         android:id="@+id/btnGoToImplicitActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button go to Implicit Activity"
-        />
+        android:text="Button go to Implicit Activity" />
 
     <Button
         android:id="@+id/btnGoToIntentActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button go to Intent Activity"
-        />
+        android:text="Button go to Intent Activity" />
 
 
 </LinearLayout>
